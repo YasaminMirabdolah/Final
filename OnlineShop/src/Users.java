@@ -1,11 +1,7 @@
 import java.util.*;
 
 public class Users {
-    enum Role{
-        customer,
-        Admin,
-        Seller
-    }
+
     private Role role;
     private String name;
     private String password;

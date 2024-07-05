@@ -38,7 +38,7 @@ public class Main{
     public static void Login(){
         Scanner input=new Scanner(System.in);
         System.out.println("What is your role(Login): \n" + "\t 1)Admin\n"
-                + "\t 2)User\n"+"\t 3)Seller\n"+"\t 4)Main Menu\n");
+                + "\t 2)Customer\n"+"\t 3)Seller\n"+"\t 4)Main Menu\n");
 
         int x=input.nextInt();
 
@@ -69,7 +69,7 @@ public class Main{
     public static void Register(){
         Scanner input=new Scanner(System.in);
         System.out.println("What is your role(Register): \n" + "\t 1)Admin\n"
-                + "\t 2)User\n"+"\t 3)Seller\n"+"\t 4)Main Menu\n");
+                + "\t 2)Customer\n"+"\t 3)Seller\n"+"\t 4)Main Menu\n");
 
         int x=input.nextInt();
 
@@ -78,7 +78,22 @@ public class Main{
                 System.out.print("Should be complete");
                 break;
             case 2:
-                System.out.print("Should be complete");
+               Role role=Role.customer;
+                System.out.println("Please Enter your name: ");
+                String name=input.nextLine();
+                System.out.println("Please Enter your password: ");
+                String password=input.nextLine();
+                System.out.println("Please Enter your email: ");
+                String email=input.nextLine();
+                System.out.println("Please Enter your number: ");
+                String number=input.nextLine();
+                System.out.println("Please Enter your Address: ");
+                String Address=input.nextLine();
+                customer C=new customer(role , name,password,email, number , Address);
+                Shop.addAccont(C);
+                System.out.println("Your account registred!");
+
+
                 break;
             case 3:
                 System.out.print("Should be complete");

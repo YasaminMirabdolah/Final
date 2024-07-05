@@ -23,7 +23,13 @@ public class Shop {
         return Product;
     }
 
-    public static void addAccont(String name , String password){
+
+
+//Register
+    public static void addAccont(Users user){
+        Accounts.add(user);
 
     }
+
+
 }
