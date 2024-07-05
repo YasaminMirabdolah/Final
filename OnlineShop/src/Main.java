@@ -50,11 +50,11 @@ public class Main{
                if(password.equals(x.getPassword())){
                    System.out.println("Login was successful");
                    if(x.getRole()==Role.Admin){
-                       //adminService()
+                       adminService(x);
                    }else if(x.getRole()==Role.customer){
-                       //costumerService()
+                       customerService(x);
                    } else if (x.getRole()==Role.Seller) {
-                       //sellerService
+                       sellerService(x);
 
                    }
                }else {
@@ -63,7 +63,7 @@ public class Main{
                }
            }
        }if(found==false){
-           System.out.println("Account is not found");
+           System.out.println("Account is not found\n Please Register first!");
            menu();
     }
     }
@@ -81,7 +81,7 @@ public class Main{
         switch (x) {
             case 1:
                 System.out.print("Should be complete");
-                //adminService();
+                //adminService(admin);
                 break;
             case 2:
                Role role=Role.customer;
@@ -98,8 +98,7 @@ public class Main{
                 customer Costumer=new customer(role , name , password , email, number , Address);
                 Shop.addAccont(Costumer);
                 System.out.println("Your account registered!");
-                System.out.println(Shop.getAccounts());
-                //customerService();
+               customerService(Costumer);
                 break;
             case 3:
                 Role roleseller=Role.Seller;
@@ -110,8 +109,7 @@ public class Main{
                 Seller Seller=new Seller(roleseller , companyName , passwordseller);
                 Shop.addAccont(Seller);
                 System.out.println("Your account registered!");
-                System.out.println(Shop.getAccounts());
-                //sellerService();
+               sellerService(Seller);
                 break;
             case 4:
                 menu();
@@ -124,8 +122,81 @@ public class Main{
 
     }
 
+    public static void customerService(Users Costumer){
+        System.out.println("Choose one option: \n\t"+"1)Edit personal info\n\t"+"2)view products\n\t"+"3)search \n\t"+"4)Shopping List\n\t"+"5)Exit");
+
+    }
+
+    public static void sellerService(Users Seller){
+
+    }
+
+    public static void adminService(Users admin){
+
+    }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //==================================================================================================================
 
     public static void main(String[] args){
        //اولین ادمین

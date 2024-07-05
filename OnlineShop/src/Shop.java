@@ -5,8 +5,9 @@ public class Shop {
     private static  final String WebURL = "WWW.YasaminsOnlineshop.com";
     private static final String number="0921-448-8999";
     private static ArrayList<Users> Accounts= new ArrayList<>();
-    private static ArrayList<product> Product;
-    private static ArrayList<Order> orders;
+    private static ArrayList<product> Product=new ArrayList<>();
+    private static ArrayList<Order> orders= new ArrayList<>();
+    private static ArrayList<Seller> sellersCanSell = new ArrayList<>();
     private static double profitEarned;
 
 
@@ -32,6 +33,9 @@ public class Shop {
     //Register
     public static void addAccont(Users user){
         Accounts.add(user);
+    }
+    public static void addSellersCanSell(Seller user){
+        sellersCanSell.add(user);
     }
 
 
