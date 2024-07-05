@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class customer extends Users{
+   public Role role=Role.customer;
    private String email;
    private String number;
    private String Address;

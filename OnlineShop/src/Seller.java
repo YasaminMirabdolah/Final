@@ -1,9 +1,10 @@
 import java.util.*;
 
 public class Seller extends Users{
+    public Role role=Role.Seller;
     private ArrayList<product> productsToSell;
 
-    /* لیست محصولات
+    /*
     کیف پول
      */
 
