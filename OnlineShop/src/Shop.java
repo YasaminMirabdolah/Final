@@ -23,13 +23,20 @@ public class Shop {
         return Product;
     }
 
+    public static ArrayList<Users> getAccounts() {
+        return Accounts;
+    }
+
+    public static void setAccounts(ArrayList<Users> accounts) {
+        Accounts = accounts;
+    }
 
 
 //Register
     public static void addAccont(Users user){
         Accounts.add(user);
-
     }
+
 
 
 }

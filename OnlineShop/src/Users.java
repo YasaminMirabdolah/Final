@@ -20,4 +20,15 @@ public class Users {
         this.role=role;
 
     }
+    public Role getRole(){
+        return role;
+    }
+    public String getName(){
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }

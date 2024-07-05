@@ -80,16 +80,16 @@ public class Main{
             case 2:
                Role role=Role.customer;
                 System.out.println("Please Enter your name: ");
-                String name=input.nextLine();
+                String name=input.next();
                 System.out.println("Please Enter your password: ");
-                String password=input.nextLine();
+                String password=input.next();
                 System.out.println("Please Enter your email: ");
-                String email=input.nextLine();
+                String email=input.next();
                 System.out.println("Please Enter your number: ");
-                String number=input.nextLine();
+                String number=input.next();
                 System.out.println("Please Enter your Address: ");
-                String Address=input.nextLine();
-                customer C=new customer(role , name,password,email, number , Address);
+                String Address=input.next();
+                customer C=new customer(role , name , password , email, number , Address);
                 Shop.addAccont(C);
                 System.out.println("Your account registred!");
 

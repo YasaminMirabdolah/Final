@@ -19,6 +19,79 @@ public class customer extends Users{
 
    }
 
+   @Override
+   public String getName() {
+      return super.getName();
+   }
+
+   @Override
+   public String getPassword() {
+      return super.getPassword();
+   }
+
+   @Override
+   public void setName(String name) {
+      super.setName(name);
+   }
+
+   @Override
+   public void setPassword(String password) {
+      super.setPassword(password);
+   }
+
+   @Override
+   public Role getRole() {
+      return role;
+   }
+
+   public String getAddress() {
+      return Address;
+   }
+
+   public ArrayList<Order> getOrder() {
+      return Order;
+   }
+
+   public ArrayList<product> getBought() {
+      return Bought;
+   }
+
+   public ArrayList<product> getCart() {
+      return cart;
+   }
+
+   public String getEmail() {
+      return email;
+   }
+
+   public String getNumber() {
+      return number;
+   }
+
+   public void setAddress(String address) {
+      Address = address;
+   }
+
+   public void setBought(ArrayList<product> bought) {
+      Bought = bought;
+   }
+
+   public void setCart(ArrayList<product> cart) {
+      this.cart = cart;
+   }
+
+   public void setEmail(String email) {
+      this.email = email;
+   }
+
+   public void setNumber(String number) {
+      this.number = number;
+   }
+
+   public void setOrder(ArrayList<Order> order) {
+      Order = order;
+   }
+
    /* list e sabad kharid
    list sefaresh
    list mahsolat kharidari shode
