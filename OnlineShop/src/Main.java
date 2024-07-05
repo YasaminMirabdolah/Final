@@ -37,30 +37,35 @@ public class Main{
 
     public static void Login(){
         Scanner input=new Scanner(System.in);
-        System.out.println("What is your role(Login): \n" + "\t 1)Admin\n"
-                + "\t 2)Customer\n"+"\t 3)Seller\n"+"\t 4)Main Menu\n");
+       System.out.println("please Enter your name or your Company's name:");
+       String name=input.next();
+       ArrayList<Users> users=new ArrayList<>();
+       users = Shop.getAccounts();
+       boolean found =false;
+       for(Users x:users){
+           if(name.equals(x.getName())){
+               found=true;
+               System.out.println("Account is found:\n please Enter your password:");
+               String password=input.next();
+               if(password.equals(x.getPassword())){
+                   System.out.println("Login was successful");
+                   if(x.getRole()==Role.Admin){
+                       //adminService()
+                   }else if(x.getRole()==Role.customer){
+                       //costumerService()
+                   } else if (x.getRole()==Role.Seller) {
+                       //sellerService
 
-        int x=input.nextInt();
-
-
-            switch (x) {
-                case 1:
-                    System.out.print("Should be complete");
-                    break;
-                case 2:
-                    System.out.print("Should be complete");
-                    break;
-                case 3:
-                    System.out.print("Should be complete");
-                    break;
-                case 4:
-                    menu();
-                default:
-                    System.out.println("Invalid Input! \nPlease Try Again:");
-                    Login();
-                    break;
-            }
-
+                   }
+               }else {
+                   System.out.println("Password is incorrect");
+                   menu();
+               }
+           }
+       }if(found==false){
+           System.out.println("Account is not found");
+           menu();
+    }
     }
 
 
@@ -76,6 +81,7 @@ public class Main{
         switch (x) {
             case 1:
                 System.out.print("Should be complete");
+                //adminService();
                 break;
             case 2:
                Role role=Role.customer;
@@ -89,14 +95,23 @@ public class Main{
                 String number=input.next();
                 System.out.println("Please Enter your Address: ");
                 String Address=input.next();
-                customer C=new customer(role , name , password , email, number , Address);
-                Shop.addAccont(C);
-                System.out.println("Your account registred!");
-
-
+                customer Costumer=new customer(role , name , password , email, number , Address);
+                Shop.addAccont(Costumer);
+                System.out.println("Your account registered!");
+                System.out.println(Shop.getAccounts());
+                //customerService();
                 break;
             case 3:
-                System.out.print("Should be complete");
+                Role roleseller=Role.Seller;
+                System.out.println("Please Enter your company's name: ");
+                String companyName=input.next();
+                System.out.println("Please Enter your password: ");
+                String passwordseller=input.next();
+                Seller Seller=new Seller(roleseller , companyName , passwordseller);
+                Shop.addAccont(Seller);
+                System.out.println("Your account registered!");
+                System.out.println(Shop.getAccounts());
+                //sellerService();
                 break;
             case 4:
                 menu();
@@ -113,7 +128,18 @@ public class Main{
 
 
     public static void main(String[] args){
+       //اولین ادمین
+        Role role=Role.Admin;
+        String adminname="Admin0";
+        String password="Password";
+        String email="Email";
+        Admin adminno1=new Admin(role , adminname, password , email);
+        Shop.addAccont(adminno1);
+
+
         System.out.println(Shop.getName()+"\n"+ Shop.getWebURL()+"\n");
+
+        System.out.println(Shop.getAccounts());
         menu();
 
     }
