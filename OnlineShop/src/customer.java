@@ -5,7 +5,7 @@ public class customer extends Users{
    private String email;
    private String number;
    private String Address;
-
+   private Wallet wallet;
    private ArrayList<product> cart;
    private ArrayList<Order> Order;
    private ArrayList<product> Bought;
@@ -16,6 +16,8 @@ public class customer extends Users{
       this.email=email;
       this.number=number;
       this.Address=Address;
+      double balance=0;
+      Wallet wallet=new Wallet(name,balance);
 
    }
 
@@ -92,9 +94,14 @@ public class customer extends Users{
       Order = order;
    }
 
-   /* list e sabad kharid
-   list sefaresh
-   list mahsolat kharidari shode
-   kif e pool
-    */
+   public Wallet getWallet() {
+      return wallet;
+   }
+
+   public double getWalletBalance() {
+      return wallet.getBalance();
+   }
+   public String getWalletName(){
+      return wallet.getName();
+   }
 }
