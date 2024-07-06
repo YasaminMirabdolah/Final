@@ -133,7 +133,8 @@ public class Main{
     }
 
     public static void customerService(Users Costumer){
-        System.out.println("Choose one option: \n\t"+"1)Edit personal info\n\t"+"2)view products\n\t"+"3)search \n\t"+"4)Shopping List\n\t"+"5)Exit");
+        System.out.println("Choose one option: \n\t"+"1)Edit personal info\n\t"+"2)view products\n\t"+"3)search product \n\t"+"4)Shopping Cart\n\t"+"5)Order list\n\t"
+        +"6)List of Products Purchased\n\t"+"7)Main menu");
 
     }
 
@@ -244,7 +245,7 @@ public class Main{
         Shop.addAccont(adminno1);
          customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
          Shop.addAccont(customer);
-        viewCustomerInfo(adminno1);
+
         System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n");
 
         System.out.println(Shop.getAccounts());
