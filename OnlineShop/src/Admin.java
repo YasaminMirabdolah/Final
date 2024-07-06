@@ -30,8 +30,6 @@ public class Admin  extends Users{
     }
 
 
-
-
     public void Accepted(Seller seller){
         requestforsellingProduct.remove(seller);
         Shop.addSellersCanSell(seller);
@@ -63,5 +61,19 @@ public class Admin  extends Users{
     @Override
     public Role getRole() {
         return role;
+    }
+
+
+
+    public void viewInfo(Users  s){
+        System.out.println("customer's name : " + s.getName());
+        System.out.println("Customer's password : "+ s.getPassword());
+        System.out.println("Customer's Address : " + ((customer) s).getAddress());
+        System.out.println("Customer's number : " +((customer) s).getNumber());
+        System.out.println("Customer's Email : "+ ((customer) s).getEmail());
+        System.out.println("Customer's wallet's balance:" + ((customer) s).getWalletBalance());
+        System.out.println("Customer Shopping cart: "+ ((customer) s).getCart());
+        System.out.println("Customer's Order List : "+ ((customer) s).getOrder());
+        System.out.println("Customer's List of Products Purchased : "+ ((customer) s).getBought());
     }
 }

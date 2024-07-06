@@ -154,7 +154,8 @@ public class Main{
             for(Users s:Shop.getAccounts()){
                 if(name.equals(s.getName())){
                     if(s instanceof customer){
-                    System.out.println("Should be complete");
+                    ((Admin) user).viewInfo(s);
+
                     found=true;
                     }else {
                         System.out.println("customer not found!");
@@ -244,8 +245,7 @@ public class Main{
          customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
          Shop.addAccont(customer);
         viewCustomerInfo(adminno1);
-
-        System.out.println(Shop.getName()+"\n"+ Shop.getWebURL()+"\n");
+        System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n");
 
         System.out.println(Shop.getAccounts());
         menu();
