@@ -31,4 +31,9 @@ public class Users {
         return password;
     }
 
+    public String toString() {
+        return role + " :  " + name;
+    }
+
+
 }

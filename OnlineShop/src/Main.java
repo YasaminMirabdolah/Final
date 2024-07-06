@@ -133,8 +133,28 @@ public class Main{
     }
 
     public static void customerService(Users Costumer){
-        System.out.println("Choose one option: \n\t"+"1)Edit personal info\n\t"+"2)view products\n\t"+"3)search product \n\t"+"4)Shopping Cart\n\t"+"5)Order list\n\t"
-        +"6)List of Products Purchased\n\t"+"7)Main menu");
+        Scanner input=new Scanner(System.in);
+
+            System.out.println("Choose one option: \n\t" + "1)Edit personal info\n\t" + "2)view products\n\t" + "3)search product \n\t" + "4)Shopping Cart\n\t"
+                    + "5)Order list\n\t"
+                    + "6)List of Products Purchased\n\t" + "7)Main menu");
+            int x = input.nextInt();
+            switch (x) {
+                case 1:
+
+                        System.out.println("Which personal information you want to change:\n\t"+"1)name\n\t"+
+                                "2)Password\n\t"+"3)number\n\t4)Email\n\t5)Address\n\t6)Back");
+                        int choose=input.nextInt();
+                EditInfo(Costumer, choose);
+                    break;
+                case 2:
+                    //Shop.viewProduct();
+                    break;
+                case 3:
+                    // Shop.searchProduct();
+                    break;
+
+        }
 
     }
 
@@ -172,6 +192,56 @@ public class Main{
 
     }
 
+
+
+    public static void EditInfo(Users Costumer,int x){
+        Scanner input=new Scanner(System.in);
+
+
+            switch (x) {
+                case 1:
+                    System.out.println("Enter your new name :");
+                    String newname = input.next();
+                    Costumer.setName(newname);
+                    System.out.println("Your name is successfully changed");
+                    customerService(Costumer);
+                    break;
+                case 2:
+                    System.out.println("Enter your new Password :");
+                    String newPassword = input.next();
+                    Costumer.setPassword(newPassword);
+                    System.out.println("Your password is successfully changed");
+                    customerService(Costumer);
+                    break;
+                case 3:
+                    System.out.println("Enter your new number :");
+                    String newnumber = input.next();
+                    ((customer) Costumer).setNumber(newnumber);
+                    System.out.println("your number is successfully changed");
+                    customerService(Costumer);
+                    break;
+                case 4:
+                    System.out.println("Enter your new Email :");
+                    String newEmail = input.next();
+                    ((customer) Costumer).setEmail(newEmail);
+                    System.out.println("Your Email is successfully changed");
+                    customerService(Costumer);
+                    break;
+                case 5:
+                    System.out.println("Enter your new Address :");
+                    String newAddress = input.next();
+                    ((customer) Costumer).setAddress(newAddress);
+                    System.out.println("Your Address is successfully changed");
+                    customerService(Costumer);
+                    break;
+                case 6:
+                    customerService(Costumer);
+                    break;
+
+
+
+        }
+    }
 
 
 
@@ -248,7 +318,7 @@ public class Main{
 
         System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n");
 
-        System.out.println(Shop.getAccounts());
+      System.out.println(Shop.getAccounts());
         menu();
 
     }

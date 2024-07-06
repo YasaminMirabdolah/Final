@@ -38,6 +38,4 @@ public class Shop {
         sellersCanSell.add(user);
     }
 
-
-
 }
