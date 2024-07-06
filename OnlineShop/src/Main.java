@@ -80,7 +80,17 @@ public class Main{
 
         switch (x) {
             case 1:
-                System.out.print("Should be complete");
+                Role roleadmin=Role.Admin;
+                System.out.println("Please Enter your name: ");
+                String nameadmin=input.next();
+                System.out.println("Please Enter your password: ");
+                String passwordadmin=input.next();
+                System.out.println("Please Enter your email: ");
+                String emailadmin=input.next();
+                Admin admin=new Admin(roleadmin , nameadmin, passwordadmin, emailadmin);
+                Admin.addRequestforAdminAccount(admin);
+                System.out.println("Your request has been sent to admins");
+                System.out.println(Admin.getRequestforAdminAccount());
                 //adminService(admin);
                 break;
             case 2:
@@ -132,6 +142,31 @@ public class Main{
     }
 
     public static void adminService(Users admin){
+
+    }
+
+    public static void viewCustomerInfo(Users user){
+        Scanner input=new Scanner(System.in);
+        boolean found=false;
+        if(user instanceof Admin){
+            System.out.println("please enter the customer's name:");
+            String name= input.next();
+            for(Users s:Shop.getAccounts()){
+                if(name.equals(s.getName())){
+                    if(s instanceof customer){
+                    System.out.println("Should be complete");
+                    found=true;
+                    }else {
+                        System.out.println("customer not found!");
+                    }
+                }
+            }if(found==false){
+                System.out.println("customer not found!");
+            }
+
+        }else{
+            System.out.println("You do not have access to this method");
+        }
 
     }
 
@@ -206,7 +241,9 @@ public class Main{
         String email="Email";
         Admin adminno1=new Admin(role , adminname, password , email);
         Shop.addAccont(adminno1);
-
+         customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
+         Shop.addAccont(customer);
+        viewCustomerInfo(adminno1);
 
         System.out.println(Shop.getName()+"\n"+ Shop.getWebURL()+"\n");
 

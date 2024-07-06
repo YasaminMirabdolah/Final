@@ -4,14 +4,23 @@ import java.util.*;
 public class Admin  extends Users{
     public Role role=Role.Admin;
     private String email;
-    private ArrayList<Users> requestforAdminAccount = new ArrayList<>();
-    private ArrayList<Seller> requestforsellingProduct = new ArrayList<>();
-    private ArrayList<Order> requestforbuyingProduct=new ArrayList<>();
+    private static ArrayList<Users> requestforAdminAccount = new ArrayList<>();
+    private static ArrayList<Seller> requestforsellingProduct = new ArrayList<>();
+    private  static ArrayList<Order> requestforbuyingProduct=new ArrayList<>();
+
+
     public Admin(Role role , String name , String password, String email){
         super(role, name , password);
         this.email=email;
     }
 
+
+    public static void addRequestforAdminAccount(Users user){
+        requestforAdminAccount.add(user);
+    }
+    public static ArrayList<Users> getRequestforAdminAccount() {
+        return requestforAdminAccount;
+    }
     public void Accepted(Admin admin){
         requestforAdminAccount.remove(admin);
         Shop.addAccont(admin);
@@ -19,6 +28,8 @@ public class Admin  extends Users{
     public void Remove(Admin admin){
         requestforAdminAccount.remove(admin);
     }
+
+
 
 
     public void Accepted(Seller seller){
