@@ -7,7 +7,9 @@ public Wallet (String name , double balance){
     this.name=name;
     this.balance=balance;
 }
+public Wallet(){
 
+}
     public double getBalance() {
         return balance;
     }

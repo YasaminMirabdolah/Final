@@ -1,5 +1,8 @@
 import java.util.*;
 public class Main{
+
+
+
     public static void menu() {
         Scanner input = new Scanner(System.in);
         System.out.println("Choose one option please:" + "\n"
@@ -71,6 +74,10 @@ public class Main{
 
 
 
+
+
+
+
     public static void Register(){
         Scanner input=new Scanner(System.in);
         System.out.println("What is your role(Register): \n" + "\t 1)Admin\n"
@@ -132,12 +139,22 @@ public class Main{
 
     }
 
+
+
+
+
+
+
+
+
+
+
     public static void customerService(Users Costumer){
         Scanner input=new Scanner(System.in);
 
             System.out.println("Choose one option: \n\t" + "1)Edit personal info\n\t" + "2)view products\n\t" + "3)search product \n\t" + "4)Shopping Cart\n\t"
                     + "5)Order list\n\t"
-                    + "6)List of Products Purchased\n\t" + "7)Main menu");
+                    + "6)List of Products Purchased\n\t" + "7)Wallet\n\t"+"8)Main menu");
             int x = input.nextInt();
             switch (x) {
                 case 1:
@@ -153,18 +170,149 @@ public class Main{
                 case 3:
                     // Shop.searchProduct();
                     break;
+                case 4:
+                    //Shoping cart
+                    break;
+                case 5:
+                    //Order List
+                    break;
+                case 6:
+                    //List of Products Purchased
+                    break;
+                case 7:
+                    Wallet(Costumer);
+                case 8:
+                    menu();
+                    break;
 
         }
 
     }
 
-    public static void sellerService(Users Seller){
+
+
+
+
+
+
+
+
+    public static void Wallet(Users user){
+        Scanner input=new Scanner(System.in);
+        System.out.println("Please choose one option :\n\t"+"1)Check the balance\n\t"+"2)Request for Money\n\t"+"3)Back");
+        int x=input.nextInt();
+        switch(x){
+            case 1:
+                if(user instanceof customer){
+                    System.out.println(((customer) user).getWalletBalance());
+                    customerService(user);
+                }else if(user instanceof Seller){
+                    System.out.println(((Seller) user).getWalletBalance());
+                    sellerService(user);
+                }
+                break;
+            case 2:
+                //Request for money
+                break;
+            case 3:
+                if(user instanceof customer){
+                    customerService(user);
+                }else if(user instanceof Seller){
+                    sellerService(user);
+                }
+                break;
+
+
+        }
+
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void sellerService(Users Seller){
+        Scanner input=new Scanner(System.in);
+        System.out.println("Please Choose one option: \n\t"+"1)request for selling products\n\t"+"2)add the products\n\t"+"3)Wallet\n\t"+"4)Main menu");
+        int x=input.nextInt();
+        switch (x){
+            case 1:
+                //request for selling
+                break;
+            case 2:
+                //add the product
+                break;
+            case 3:
+                Wallet(Seller);
+                break;
+            case 4:
+                menu();
+                break;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public static void adminService(Users admin){
+        Scanner input=new Scanner(System.in);
+        System.out.println("Please choose one option:\n\t"+"1)view Accounts\n\t"+"2)view customer's info\n\t"+"3)view products\n\t"
+        +"4)view Request for Admin Accounts\n\t"+"5)view Request for Selling products\n\t"+"6)view Request for buying products\n\t"
+        +"7)Main menu");
+        int x=input.nextInt();
+        switch(x){
+            case 1:
+                System.out.println(Shop.getAccounts());
+                break;
+            case 2:
+                System.out.println("Please Enter the customer's name");
+                String user=input.next();
+                viewCustomerInfo(admin);
+                break;
+            case 3:
+                //view products
+                break;
+            case 4:
+                //view request for admin
+                break;
+            case 5:
+                //view request for selling
+                break;
+            case 6:
+                //view request for buying products
+                break;
+            case 7:
+                menu();
+                break;
+
+        }
 
     }
+
+
+
+
+
+
+
 
     public static void viewCustomerInfo(Users user){
         Scanner input=new Scanner(System.in);
@@ -191,6 +339,15 @@ public class Main{
         }
 
     }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -242,56 +399,6 @@ public class Main{
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
