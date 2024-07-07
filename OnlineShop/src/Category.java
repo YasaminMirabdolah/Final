@@ -5,5 +5,5 @@ public enum Category {
         Cosmetics,
         Books,
         Clothing
-   
+
 }

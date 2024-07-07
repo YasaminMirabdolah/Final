@@ -422,7 +422,7 @@ public class Main{
         Shop.addAccont(adminno1);
          customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
          Shop.addAccont(customer);
-        product Pro=new product("ogh",32.8,5,"hfs");
+        Electronics Pro=new Electronics("name",3.2,8,"seller","Extra",3.2,"its good");
         Shop.addProduct(Pro);
 
         System.out.println(Shop.getProduct());
