@@ -422,10 +422,16 @@ public class Main{
         Shop.addAccont(adminno1);
          customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
          Shop.addAccont(customer);
+        product Pro=new product("ogh",32.8,5,"hfs");
+        Shop.addProduct(Pro);
 
+        System.out.println(Shop.getProduct());
+        System.out.println(Shop.getAccounts());
+
+        System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n");
 
-      System.out.println(Shop.getAccounts());
+
         menu();
 
     }

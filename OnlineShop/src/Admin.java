@@ -4,7 +4,7 @@ import java.util.*;
 public class Admin  extends Users{
     public Role role=Role.Admin;
     private String email;
-    private static ArrayList<Admin> requestforAdminAccount = new ArrayList<>();
+    private static ArrayList<Users> requestforAdminAccount = new ArrayList<>();
     private static ArrayList<Seller> requestforsellingProduct = new ArrayList<>();
     private  static ArrayList<Order> requestforbuyingProduct=new ArrayList<>();
 

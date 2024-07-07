@@ -37,5 +37,8 @@ public class Shop {
     public static void addSellersCanSell(Seller user){
         sellersCanSell.add(user);
     }
+    public static void addProduct(product product){
+       Product.add(product);
+    }
 
 }
