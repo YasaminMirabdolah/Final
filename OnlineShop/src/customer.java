@@ -132,7 +132,7 @@ public class customer extends Users{
 
             Cart pro = iterproduct.next();
             System.out.println(pro);
-            System.out.println("1)add to order list" + "\n" + "2)remove" + "\n" + "3)Next\n"+"4)Back\n" + "=================================================================");
+            System.out.println("1)add to order list" + "\n" + "2)Empty the shopping list" + "\n" + "3)Next\n"+"4)Back\n" + "=================================================================");
             int m = input.nextInt();
             if(m==3){
                continue;
@@ -141,15 +141,63 @@ public class customer extends Users{
                Main.customerService(customer);
                break;
             } else if (m == 2) {
-               cart.remove(pro);
+               cart.clear();
             } else if (m == 1) {
                ((customer) customer).getOrder().add(pro);
                Shop.addOrder(pro);
-               cart.remove(pro);
+               Admin.addRequestforbuyingProduct(pro);//requst for buying things (قسمت امتیازی)
+
             }
          }
       }
    }
+
+
+
+
+
+
+
+
+
+
+   public void vieworder(Users customer) {
+      Scanner input = new Scanner(System.in);
+      Iterator<Cart> iterproduct =Order.iterator();
+      for (int i = 0; i <= Order.size(); i++) {
+         if (i == Order.size()) {
+            System.out.println("last product");
+            Main.customerService(customer);
+         }
+         if (i < Order.size()) {
+
+            Cart pro = iterproduct.next();
+            System.out.println(pro);
+
+            }
+         }
+      }
+
+
+
+
+   public void viewBought(Users customer) {
+      Scanner input = new Scanner(System.in);
+      Iterator<Cart> iterproduct =Bought.iterator();
+      for (int i = 0; i <= Bought.size(); i++) {
+         if (i == Bought.size()) {
+            System.out.println("last product");
+            Main.customerService(customer);
+         }
+         if (i < Bought.size()) {
+
+            Cart pro = iterproduct.next();
+            System.out.println(pro);
+
+         }
+      }
+   }
+
 }
 
 

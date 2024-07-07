@@ -9,7 +9,7 @@ public class Main{
                 + "\t 1)Login" + "\n"
                 + "\t 2)Register" + "\n"
                 + "\t 3)Support" + "\n"
-                + "\t 4)Exit");
+                + "\t 4)Orders list of Shop"+"\n"+"\t 5)Exit");
         int x = input.nextInt();
 
         switch (x) {
@@ -24,6 +24,10 @@ public class Main{
                 menu();
                 break;
             case 4:
+               System.out.println( Shop.getOrders());
+               menu();
+               break;
+            case 5:
                 System.exit(0);
             default:
                 System.out.println("Invalid Input! \nPlease Try Again:");
@@ -98,8 +102,8 @@ public class Main{
                 Admin admin=new Admin(roleadmin , nameadmin, passwordadmin, emailadmin);
                 Admin.addRequestforAdminAccount(admin);
                 System.out.println("Your request has been sent to admins");
-                System.out.println(Admin.getRequestforAdminAccount());
-                //adminService(admin);
+
+
                 break;
             case 2:
                Role role=Role.customer;
@@ -176,9 +180,17 @@ public class Main{
                     break;
                 case 5:
                     System.out.println("Request is sent to Admin for buying the orders");
+                    System.out.println("Choose one option : 1)view order 2)Back");
+                    int option=input.nextInt();
+                    if(option==1){
+                        ((customer)Costumer).vieworder(Costumer);
+                    }
+                    if(option==2){
+                        customerService(Costumer);
+                    }
                     break;
                 case 6:
-                    //List of Products Purchased
+                    ((customer) Costumer).viewBought(Costumer);
                     break;
                 case 7:
                     Wallet(Costumer);
@@ -289,10 +301,10 @@ public class Main{
                 viewCustomerInfo(admin);
                 break;
             case 3:
-                //view products
+                Shop.viewProduct();
                 break;
             case 4:
-                //view request for admin
+
                 break;
             case 5:
                 //view request for selling

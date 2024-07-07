@@ -1,15 +1,22 @@
-public class Cart extends product {
-    private String customerName;
-    private String sellerName;
+public class Cart  {
+    private customer customer;
+    private Seller seller;
     private product product;
     private int number;
     private double price;
-    public Cart(product product , int number , double price , String customerName,String sellerName ){
-        this.customerName=customerName;
+    public Cart(product product , int number , double price ,customer customer , Seller seller ){
+        this.customer=customer;
         this.number=number;
         this.product=product;
-        this.sellerName=sellerName;
+        this.seller=seller;
         this.price=price;
+    }
+    public customer getCustomer(){
+        return customer;
+    }
+
+    public Seller getSeller(){
+        return seller;
     }
 
     public double getPrice() {
@@ -24,17 +31,10 @@ public class Cart extends product {
         return product;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public String getSellerName() {
-        return sellerName;
-    }
 
     @Override
     public String toString() {
-        return "name of product : "+ product+"\nnumber of product : "+number+"\nTotal Price : "+number*price+
-                "\ncustomer's name : "+customerName+"\nSeller's name : "+sellerName;
+        return "name of product : "+ product.getName()+"\nnumber of product : "+number+"\nTotal Price : "+number*price+
+                "\ncustomer's name : "+customer.getName()+"\nSeller's name : "+seller.getName();
     }
 }

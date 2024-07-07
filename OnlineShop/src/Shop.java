@@ -30,6 +30,10 @@ public class Shop {
         return Accounts;
     }
 
+    public static ArrayList<Cart> getOrders() {
+        return orders;
+    }
+
     //Register
     public static void addAccont(Users user){
         Accounts.add(user);
@@ -40,6 +44,43 @@ public class Shop {
     public static void addProduct(product product){
        Product.add(product);
     }
+
+
+
+
+
+
+    public static void viewProduct() {
+        Scanner input = new Scanner(System.in);
+        Iterator<product> iterproduct = Product.iterator();
+        for (int i = 0; i <= Product.size(); i++) {
+            if (i == Product.size()) {
+                System.out.println("last product");
+                Main.menu();
+            }
+            if (i < Product.size()) {
+
+                product pro = iterproduct.next();
+                System.out.println(pro);
+                System.out.println("1))next product" + "\n" + "2)Back\n" + "=================================================================");
+                int x = input.nextInt();
+                if (x == 2) {
+                    Main.menu();
+                    break;
+                } else if (x == 1) {
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
+
 
     public static void viewProduct(Users costumer){
         Scanner input=new Scanner(System.in);
@@ -85,7 +126,7 @@ public class Shop {
 
             }else{
                 System.out.println("invalid input");
-                searchProduct(costumer);
+               viewProduct(costumer);
             }
 
         }

@@ -6,6 +6,7 @@ public class Admin  extends Users{
     private String email;
     private static ArrayList<Users> requestforAdminAccount = new ArrayList<>();
     private static ArrayList<Seller> requestforsellingProduct = new ArrayList<>();
+    private static ArrayList<Wallet> requestformoney=new ArrayList<>();
     private  static ArrayList<Cart> requestforbuyingProduct=new ArrayList<>();
 
 
@@ -13,6 +14,9 @@ public class Admin  extends Users{
         super(role, name , password);
         this.email=email;
     }
+
+
+
 
 
     public static void addRequestforAdminAccount(Users user){
@@ -30,6 +34,15 @@ public class Admin  extends Users{
     }
 
 
+
+
+    public static void addRequestforsellingProduct(Seller user){
+        requestforsellingProduct.add(user);
+    }
+    public static ArrayList<Seller> getRequestforsellingProduct() {
+        return requestforsellingProduct;
+    }
+
     public void Accepted(Seller seller){
         requestforsellingProduct.remove(seller);
         Shop.addSellersCanSell(seller);
@@ -39,9 +52,51 @@ public class Admin  extends Users{
     }
 
 
-    public void Accepted(Cart order){
+
+
+
+    public static ArrayList<Cart> getRequestforbuyingProduct() {
+        return requestforbuyingProduct;
+    }
+    public static void addRequestforbuyingProduct(Cart order){
+        requestforbuyingProduct.add(order);
 
     }
+    public void Accepted(Cart order){
+        requestforbuyingProduct.remove(order);
+        customer c=order.getCustomer();
+        
+    }
+    public void Remove(Seller seller){
+        requestforsellingProduct.remove(seller);
+    }
+
+
+    public static ArrayList<Wallet> getRequestformoney() {
+        return requestformoney;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Override
