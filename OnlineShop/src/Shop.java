@@ -81,14 +81,81 @@ public class Shop {
 
 
     }
-   // public static void searchProduct(String name){
+   public static void searchProduct(Users costumer) {
+       Scanner input = new Scanner(System.in);
+       System.out.println("Which one you want to search : 1)Name of the product  2)name of the seller  3)Price of the product  4)Back");
+       int x = input.nextInt();
+       ArrayList<product> foundProduct = new ArrayList<>();
+       if(x==4){
+           Main.customerService(costumer);
+       }
+       if (x == 1) {
+           System.out.println("Please Enter the name of the product :");
+           String name = input.next();
+           for (product product : Product) {
+               if (name.equals(product.getName())) {
+                   foundProduct.add(product);
 
-   // }
-   // public static void searchProduct(String sellername){
+               }
+           }
+       }
+       if (x == 2) {
+           System.out.println("Please Enter the name of the seller :");
+           String sellername = input.next();
+           for (product product : Product) {
+               if (sellername.equals(product.getSellerName())) {
+                   foundProduct.add(product);
 
-    //}
-   // public static void searchProduct(double price){
+               }
+           }
 
-   // }
+       }
+       if(x==3){
+           System.out.println("Please Enter the price of the product : ");
+           double price=input.nextDouble();
+           for(product product:Product){
+               if(price==product.getPrice()){
+                   foundProduct.add(product);
+               }
+           }
+       }
+
+       Iterator<product> iterproduct = foundProduct.iterator();
+       for (int i = 0; i <= foundProduct.size(); i++) {
+           if (i == foundProduct.size()) {
+               System.out.println("last product");
+               Main.customerService(costumer);
+           }
+           if (i < foundProduct.size()) {
+
+               product pro = iterproduct.next();
+               System.out.println(pro);
+               System.out.println("1)add to Shopping cart" + "\n" + "2)next product" + "\n" + "3)Comment\n" + "4)Back\n" + "=================================================================");
+               int m = input.nextInt();
+               if (m == 4) {
+                   Main.customerService(costumer);
+                   break;
+               } else if (m == 2) {
+                   continue;
+               } else if (m == 3) {
+                   //add comment
+                   continue;
+               } else if (m == 1) {
+                   //add to shoping cart
+                   int quantity = pro.getInventoryQuantity();
+                   pro.setInventoryQuantity(quantity - 1);
+                   continue;
+
+               }
+
+           }
+
+
+       }
+   }
+
+
 
 }
+
+

@@ -169,7 +169,7 @@ public class Main{
                     Shop.viewProduct(Costumer);
                     break;
                 case 3:
-                    // Shop.searchProduct();
+                    Shop.searchProduct(Costumer);
                     break;
                 case 4:
                     //Shoping cart
@@ -427,9 +427,9 @@ public class Main{
          Shop.addAccont(customer1);
         Electronics Pro=new Electronics("name",3.2,8,"seller","Extra",3.2,"its good");
         Shop.addProduct(Pro);
-        Cosmetics cos=new Cosmetics("name", 55.5,5, "seller" ,"app" , "extra") ;
+        Cosmetics cos=new Cosmetics("name2", 55.5,5, "seller" ,"app" , "extra") ;
         Shop.addProduct(cos);
-        Books book=new Books("name" , 120.0 , 5, "seller","writer", "public" , "extra");
+        Books book=new Books("name2" , 120.0 , 5, "seller","writer", "public" , "extra");
         Shop.addProduct(book);
 
         System.out.println(Shop.getProduct());
