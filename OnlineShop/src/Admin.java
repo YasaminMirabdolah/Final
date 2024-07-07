@@ -6,7 +6,7 @@ public class Admin  extends Users{
     private String email;
     private static ArrayList<Users> requestforAdminAccount = new ArrayList<>();
     private static ArrayList<Seller> requestforsellingProduct = new ArrayList<>();
-    private  static ArrayList<Order> requestforbuyingProduct=new ArrayList<>();
+    private  static ArrayList<Cart> requestforbuyingProduct=new ArrayList<>();
 
 
     public Admin(Role role , String name , String password, String email){
@@ -39,7 +39,7 @@ public class Admin  extends Users{
     }
 
 
-    public void Accepted(Order order){
+    public void Accepted(Cart order){
 
     }
 

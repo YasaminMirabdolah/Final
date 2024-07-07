@@ -6,9 +6,9 @@ public class customer extends Users{
    private String number;
    private String Address;
    private Wallet wallet=new Wallet();
-   private ArrayList<Things> cart=new ArrayList<>();
-   private ArrayList<Things> Order=new ArrayList<>();
-   private ArrayList<Things> Bought=new ArrayList<>();
+   private ArrayList<Cart> cart=new ArrayList<>();
+   private ArrayList<Cart> Order=new ArrayList<>();
+   private ArrayList<Cart> Bought=new ArrayList<>();
 
 
    public customer(Role role, String name , String password , String email , String number, String Address){
@@ -50,15 +50,15 @@ public class customer extends Users{
       return Address;
    }
 
-   public ArrayList<Things> getOrder() {
+   public ArrayList<Cart> getOrder() {
       return Order;
    }
 
-   public ArrayList<Things> getBought() {
+   public ArrayList<Cart> getBought() {
       return Bought;
    }
 
-   public ArrayList<Things> getCart() {
+   public ArrayList<Cart> getCart() {
       return cart;
    }
 
@@ -74,11 +74,11 @@ public class customer extends Users{
       Address = address;
    }
 
-   public void setBought(ArrayList<Things> bought) {
+   public void setBought(ArrayList<Cart> bought) {
       Bought = bought;
    }
 
-   public void setCart(ArrayList<Things> cart) {
+   public void setCart(ArrayList<Cart> cart) {
       this.cart = cart;
    }
 
@@ -90,7 +90,7 @@ public class customer extends Users{
       this.number = number;
    }
 
-   public void setOrder(ArrayList<Things> order) {
+   public void setOrder(ArrayList<Cart> order) {
       Order = order;
    }
 
@@ -105,10 +105,51 @@ public class customer extends Users{
       return wallet.getName();
    }
 
-   public void addToShopingCart(product Product){
 
-      cart.add(Product);
+
+
+
+   public void addToShopingCart(product product , int number , double price , String customerName,String sellerName ){
+   Cart newcart=new Cart(product , number , price, customerName, sellerName);
+     cart.add(newcart);
    }
 
 
+
+
+
+
+
+   public void viewCart(Users customer) {
+      Scanner input = new Scanner(System.in);
+      Iterator<Cart> iterproduct = cart.iterator();
+      for (int i = 0; i <= cart.size(); i++) {
+         if (i == cart.size()) {
+            System.out.println("last product");
+            Main.customerService(customer);
+         }
+         if (i < cart.size()) {
+
+            Cart pro = iterproduct.next();
+            System.out.println(pro);
+            System.out.println("1)add to order list" + "\n" + "2)remove" + "\n" + "3)Next\n"+"4)Back\n" + "=================================================================");
+            int m = input.nextInt();
+            if(m==3){
+               continue;
+            }
+            if (m == 4) {
+               Main.customerService(customer);
+               break;
+            } else if (m == 2) {
+               cart.remove(pro);
+            } else if (m == 1) {
+               ((customer) customer).getOrder().add(pro);
+               cart.remove(pro);
+            }
+         }
+      }
+   }
 }
+
+
+

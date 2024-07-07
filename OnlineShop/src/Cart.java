@@ -1,12 +1,10 @@
-import java.util.*;
-
-public class Order extends Things {
+public class Cart extends Things {
     private String customerName;
     private String sellerName;
     private product product;
     private int number;
     private double price;
-    public Order(product product , int number , double price , String customerName,String sellerName ){
+    public Cart(product product , int number , double price , String customerName,String sellerName ){
         this.customerName=customerName;
         this.number=number;
         this.product=product;
@@ -32,5 +30,11 @@ public class Order extends Things {
 
     public String getSellerName() {
         return sellerName;
+    }
+
+    @Override
+    public String toString() {
+        return "name of product : "+ product+"\nnumber of product : "+number+"\nTotal Price : "+number*price+
+                "\ncustomer's name : "+customerName+"\nSeller's name : "+sellerName;
     }
 }

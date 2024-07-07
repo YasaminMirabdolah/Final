@@ -172,7 +172,7 @@ public class Main{
                     Shop.searchProduct(Costumer);
                     break;
                 case 4:
-                    //Shoping cart
+                    ((customer)Costumer).viewCart(Costumer);
                     break;
                 case 5:
                     //Order List

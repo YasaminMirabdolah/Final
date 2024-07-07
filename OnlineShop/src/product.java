@@ -289,7 +289,7 @@ class Books extends product{
     public String toString(){
         return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
                 "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"writer : "+
-                writer+"\n"+"Writer : "+writer+"\n"+"Extra Data : "+extraData+"\n"+
+                writer+"\n"+"Publisher : "+publisher+"\n"+"Extra Data : "+extraData+"\n"+
                 "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
 

@@ -71,7 +71,7 @@ public class Shop {
                 System.out.println("Enter the number of product you want to add to your Shopping cart");
                 int n=input.nextInt();
                 if(n<=pro.getInventoryQuantity()) {
-                    ((customer) costumer).addToShopingCart(pro);
+                    ((customer) costumer).addToShopingCart(pro , n , pro.getPrice() , costumer.getName() , pro.getSellerName());
                     int quantity =pro.getInventoryQuantity();
                     int newquantity=quantity-n;
                     pro.setInventoryQuantity(newquantity);
@@ -177,7 +177,7 @@ public class Shop {
                    System.out.println("Enter the number of product you want to add to your Shopping cart");
                    int n=input.nextInt();
                    if(n<=pro.getInventoryQuantity()) {
-                       ((customer) costumer).addToShopingCart(pro);
+                       ((customer) costumer).addToShopingCart(pro , n , pro.getPrice() , costumer.getName() , pro.getSellerName());
                        int quantity =pro.getInventoryQuantity();
                        int newquantity=quantity-n;
                        pro.setInventoryQuantity(newquantity);
