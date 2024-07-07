@@ -6,7 +6,7 @@ public class Shop {
     private static final String number="0921-448-8999";
     private static Set<Users> Accounts= new HashSet<>();
     private static ArrayList<product> Product=new ArrayList<>();
-    private static ArrayList<Order> orders= new ArrayList<>();
+    private static ArrayList<Things> orders= new ArrayList<>();
     private static ArrayList<Seller> sellersCanSell = new ArrayList<>();
     private static double profitEarned;
 
@@ -61,14 +61,29 @@ public class Shop {
             } else if (x == 2) {
                 continue;
             } else if (x == 3) {
-                //add comment
+                System.out.println("Write your comment : ");
+                String comment =input.next();
+                pro.productaddComment(comment);
                 continue;
             } else if (x == 1) {
-                //add to shoping cart
-                int quantity = pro.getInventoryQuantity();
-                pro.setInventoryQuantity(quantity - 1);
+                System.out.println("Enter the number of product you want to add to your Shopping cart");
+                int n=input.nextInt();
+                if(n<=pro.getInventoryQuantity()) {
+                    ((customer) costumer).addToShopingCart(pro);
+                    int quantity =pro.getInventoryQuantity();
+                    int newquantity=quantity-n;
+                    pro.setInventoryQuantity(newquantity);
+                    continue;
+                }
+                else if(n>pro.getInventoryQuantity()){
+                    System.out.println("Insufficient Inventory");
+                    viewProduct(costumer);
+                }
                 continue;
 
+            }else{
+                System.out.println("invalid input");
+                searchProduct(costumer);
             }
 
         }
@@ -83,6 +98,7 @@ public class Shop {
     }
    public static void searchProduct(Users costumer) {
        Scanner input = new Scanner(System.in);
+       boolean found=false;
        System.out.println("Which one you want to search : 1)Name of the product  2)name of the seller  3)Price of the product  4)Back");
        int x = input.nextInt();
        ArrayList<product> foundProduct = new ArrayList<>();
@@ -95,8 +111,11 @@ public class Shop {
            for (product product : Product) {
                if (name.equals(product.getName())) {
                    foundProduct.add(product);
+                   found=true;
 
                }
+           }if(found==false){
+               System.out.println("Can't find the product");
            }
        }
        if (x == 2) {
@@ -105,10 +124,14 @@ public class Shop {
            for (product product : Product) {
                if (sellername.equals(product.getSellerName())) {
                    foundProduct.add(product);
+                   found = true;
 
                }
            }
+           if (found == false) {
+               System.out.println("Can't find the product");
 
+           }
        }
        if(x==3){
            System.out.println("Please Enter the price of the product : ");
@@ -116,14 +139,17 @@ public class Shop {
            for(product product:Product){
                if(price==product.getPrice()){
                    foundProduct.add(product);
+                   found=true;
                }
+           } if (found == false) {
+               System.out.println("Can't find the product");
            }
        }
+
 
        Iterator<product> iterproduct = foundProduct.iterator();
        for (int i = 0; i <= foundProduct.size(); i++) {
            if (i == foundProduct.size()) {
-               System.out.println("last product");
                Main.customerService(costumer);
            }
            if (i < foundProduct.size()) {
@@ -141,11 +167,26 @@ public class Shop {
                    //add comment
                    continue;
                } else if (m == 1) {
-                   //add to shoping cart
-                   int quantity = pro.getInventoryQuantity();
-                   pro.setInventoryQuantity(quantity - 1);
-                   continue;
 
+                   System.out.println("Enter the number of product you want to add to your Shopping cart");
+                   int n=input.nextInt();
+                   if(n<=pro.getInventoryQuantity()) {
+                       ((customer) costumer).addToShopingCart(pro);
+                       int quantity =pro.getInventoryQuantity();
+                       int newquantity=quantity-n;
+                       pro.setInventoryQuantity(newquantity);
+                       continue;
+                   }
+                   else if(n>pro.getInventoryQuantity()){
+                       System.out.println("Insufficient Inventory");
+                       searchProduct(costumer);
+
+                   }
+
+
+               }else{
+                   System.out.println("invalid input");
+                   searchProduct(costumer);
                }
 
            }
@@ -154,8 +195,8 @@ public class Shop {
        }
    }
 
-
-
 }
+
+
 
 

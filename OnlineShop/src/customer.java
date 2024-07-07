@@ -6,9 +6,9 @@ public class customer extends Users{
    private String number;
    private String Address;
    private Wallet wallet=new Wallet();
-   private ArrayList<Things> cart;
-   private ArrayList<Things> Order;
-   private ArrayList<Things> Bought;
+   private ArrayList<Things> cart=new ArrayList<>();
+   private ArrayList<Things> Order=new ArrayList<>();
+   private ArrayList<Things> Bought=new ArrayList<>();
 
 
    public customer(Role role, String name , String password , String email , String number, String Address){
@@ -103,6 +103,11 @@ public class customer extends Users{
    }
    public String getWalletName(){
       return wallet.getName();
+   }
+
+   public void addToShopingCart(product Product){
+
+      cart.add(Product);
    }
 
 

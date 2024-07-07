@@ -616,5 +616,13 @@ class Clothing extends product {
                         Application+"\n"+"Extra Data : "+extraData+"\n"+
                         "Comments : "+Comments.toString()+"\n=================================================================\n";
             }
+
+
+
+
+
+            public void addComments(String comment){
+                Comments.add(comment);
+            }
         }
 
