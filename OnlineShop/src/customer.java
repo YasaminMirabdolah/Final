@@ -6,9 +6,9 @@ public class customer extends Users{
    private String number;
    private String Address;
    private Wallet wallet=new Wallet();
-   private ArrayList<product> cart;
-   private ArrayList<Order> Order;
-   private ArrayList<product> Bought;
+   private ArrayList<Things> cart;
+   private ArrayList<Things> Order;
+   private ArrayList<Things> Bought;
 
 
    public customer(Role role, String name , String password , String email , String number, String Address){
@@ -50,15 +50,15 @@ public class customer extends Users{
       return Address;
    }
 
-   public ArrayList<Order> getOrder() {
+   public ArrayList<Things> getOrder() {
       return Order;
    }
 
-   public ArrayList<product> getBought() {
+   public ArrayList<Things> getBought() {
       return Bought;
    }
 
-   public ArrayList<product> getCart() {
+   public ArrayList<Things> getCart() {
       return cart;
    }
 
@@ -74,11 +74,11 @@ public class customer extends Users{
       Address = address;
    }
 
-   public void setBought(ArrayList<product> bought) {
+   public void setBought(ArrayList<Things> bought) {
       Bought = bought;
    }
 
-   public void setCart(ArrayList<product> cart) {
+   public void setCart(ArrayList<Things> cart) {
       this.cart = cart;
    }
 
@@ -90,7 +90,7 @@ public class customer extends Users{
       this.number = number;
    }
 
-   public void setOrder(ArrayList<Order> order) {
+   public void setOrder(ArrayList<Things> order) {
       Order = order;
    }
 

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Order {
+public class Order extends Things {
     private String customerName;
     private String sellerName;
     private product product;
