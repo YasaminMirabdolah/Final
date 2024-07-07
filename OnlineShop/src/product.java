@@ -25,6 +25,7 @@ public class product extends Things {
 
     public void productaddComment(String comment){
         Comments.add(comment);
+        System.out.println("your comment is added");
 
     }
 
@@ -619,10 +620,5 @@ class Clothing extends product {
 
 
 
-
-
-            public void addComments(String comment){
-                Comments.add(comment);
-            }
         }
 

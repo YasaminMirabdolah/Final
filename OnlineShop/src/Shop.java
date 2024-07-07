@@ -61,11 +61,13 @@ public class Shop {
             } else if (x == 2) {
                 continue;
             } else if (x == 3) {
-                System.out.println("Write your comment : ");
+                System.out.println("Write your comment (do not use space) : ");
                 String comment =input.next();
                 pro.productaddComment(comment);
+                System.out.println("your comment is added");
                 continue;
-            } else if (x == 1) {
+            }
+            else if (x == 1) {
                 System.out.println("Enter the number of product you want to add to your Shopping cart");
                 int n=input.nextInt();
                 if(n<=pro.getInventoryQuantity()) {
@@ -164,9 +166,13 @@ public class Shop {
                } else if (m == 2) {
                    continue;
                } else if (m == 3) {
-                   //add comment
+                   System.out.println("Write your comment (do not use space) : ");
+                   String comment =input.next();
+                   pro.productaddComment(comment);
+                   System.out.println("your comment is added");
                    continue;
-               } else if (m == 1) {
+               }
+               else if (m == 1) {
 
                    System.out.println("Enter the number of product you want to add to your Shopping cart");
                    int n=input.nextInt();
