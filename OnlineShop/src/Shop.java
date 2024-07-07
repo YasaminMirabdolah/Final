@@ -8,7 +8,7 @@ public class Shop {
     private static ArrayList<product> Product=new ArrayList<>();
     private static ArrayList<Cart> orders= new ArrayList<>();
     private static ArrayList<Seller> sellersCanSell = new ArrayList<>();
-    private static double profitEarned;
+    private static double profitEarned=0;
 
 
 
@@ -47,6 +47,15 @@ public class Shop {
 
 
 
+
+
+
+    public static double getProfitEarned(){
+        return profitEarned;
+    }
+    public static void addProfit(double ProfitEarned){
+        profitEarned=profitEarned+ProfitEarned;
+    }
 
 
 
@@ -112,7 +121,7 @@ public class Shop {
                 System.out.println("Enter the number of product you want to add to your Shopping cart");
                 int n=input.nextInt();
                 if(n<=pro.getInventoryQuantity()) {
-                    ((customer) costumer).addToShopingCart(pro , n , pro.getPrice() , costumer.getName() , pro.getSellerName());
+                    ((customer) costumer).addToShopingCart(pro , n , pro.getPrice() , ((customer) costumer) ,  pro.getSeller());
                     int quantity =pro.getInventoryQuantity();
                     int newquantity=quantity-n;
                     pro.setInventoryQuantity(newquantity);
@@ -165,7 +174,7 @@ public class Shop {
            System.out.println("Please Enter the name of the seller :");
            String sellername = input.next();
            for (product product : Product) {
-               if (sellername.equals(product.getSellerName())) {
+               if (sellername.equals(product.getSeller())) {
                    foundProduct.add(product);
                    found = true;
 
@@ -218,7 +227,7 @@ public class Shop {
                    System.out.println("Enter the number of product you want to add to your Shopping cart");
                    int n=input.nextInt();
                    if(n<=pro.getInventoryQuantity()) {
-                       ((customer) costumer).addToShopingCart(pro , n , pro.getPrice() , costumer.getName() , pro.getSellerName());
+                       ((customer) costumer).addToShopingCart(pro , n , pro.getPrice() , ((customer) costumer) , pro.getSeller());
                        int quantity =pro.getInventoryQuantity();
                        int newquantity=quantity-n;
                        pro.setInventoryQuantity(newquantity);

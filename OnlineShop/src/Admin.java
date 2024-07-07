@@ -6,7 +6,7 @@ public class Admin  extends Users{
     private String email;
     private static ArrayList<Users> requestforAdminAccount = new ArrayList<>();
     private static ArrayList<Seller> requestforsellingProduct = new ArrayList<>();
-    private static ArrayList<Wallet> requestformoney=new ArrayList<>();
+    private static ArrayList<Users> requestformoney=new ArrayList<>();
     private  static ArrayList<Cart> requestforbuyingProduct=new ArrayList<>();
 
 
@@ -43,11 +43,11 @@ public class Admin  extends Users{
         return requestforsellingProduct;
     }
 
-    public void Accepted(Seller seller){
+    public void Acceptedseller(Seller seller){
         requestforsellingProduct.remove(seller);
         Shop.addSellersCanSell(seller);
     }
-    public void Remove(Seller seller){
+    public void Removeseller(Seller seller){
         requestforsellingProduct.remove(seller);
     }
 
@@ -65,16 +65,27 @@ public class Admin  extends Users{
     public void Accepted(Cart order){
         requestforbuyingProduct.remove(order);
         customer c=order.getCustomer();
-        
+        Seller s=order.getSeller();
+        double totalprice=(order.getPrice())*(order.getNumber());
+        double moneyc=(-1*totalprice)*90/100;
+        double moneys=totalprice*90/100;
+        double profitforshop=totalprice*10/100;
+        s.addmoney(moneys);
+        c.addmoney(moneyc);
+        Shop.addProfit(profitforshop);
+
+
     }
-    public void Remove(Seller seller){
-        requestforsellingProduct.remove(seller);
+    public void Remove(Cart order){
+        requestforbuyingProduct.remove(order);
     }
 
 
-    public static ArrayList<Wallet> getRequestformoney() {
+
+    public static ArrayList<Users> getRequestformoney() {
         return requestformoney;
     }
+    //puble
 
 
 
@@ -126,7 +137,7 @@ public class Admin  extends Users{
         System.out.println("Customer's Address : " + ((customer) s).getAddress());
         System.out.println("Customer's number : " +((customer) s).getNumber());
         System.out.println("Customer's Email : "+ ((customer) s).getEmail());
-        System.out.println("Customer's wallet's balance:" + ((customer) s).getWalletBalance());
+        System.out.println("Customer's wallet's balance:" + ((customer) s).getWallet());
         System.out.println("Customer Shopping cart: "+ ((customer) s).getCart());
         System.out.println("Customer's Order List : "+ ((customer) s).getOrder());
         System.out.println("Customer's List of Products Purchased : "+ ((customer) s).getBought());

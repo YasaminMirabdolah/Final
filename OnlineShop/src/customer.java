@@ -5,7 +5,7 @@ public class customer extends Users{
    private String email;
    private String number;
    private String Address;
-   private Wallet wallet=new Wallet();
+   private double wallet=0;
    private ArrayList<Cart> cart=new ArrayList<>();
    private ArrayList<Cart> Order=new ArrayList<>();
    private ArrayList<Cart> Bought=new ArrayList<>();
@@ -19,7 +19,17 @@ public class customer extends Users{
 
    }
 
+   public void addmoney(double money){
+      wallet=wallet+money;
+   }
 
+   public double getWallet() {
+      return wallet;
+   }
+
+   public void setWallet(double wallet) {
+      this.wallet = wallet;
+   }
 
    @Override
    public String getName() {
@@ -94,23 +104,16 @@ public class customer extends Users{
       Order = order;
    }
 
-   public Wallet getWallet() {
-      return wallet;
-   }
-
-   public double getWalletBalance() {
-      return wallet.getBalance();
-   }
-   public String getWalletName(){
-      return wallet.getName();
-   }
 
 
 
 
 
-   public void addToShopingCart(product product , int number , double price , String customerName,String sellerName ){
-   Cart newcart=new Cart(product , number , price, customerName, sellerName);
+
+
+
+   public void addToShopingCart(product product , int number , double price , customer customer,Seller seller ){
+   Cart newcart=new Cart(product , number , price, customer, seller);
      cart.add(newcart);
    }
 
@@ -145,8 +148,14 @@ public class customer extends Users{
             } else if (m == 1) {
                ((customer) customer).getOrder().add(pro);
                Shop.addOrder(pro);
-               Admin.addRequestforbuyingProduct(pro);//requst for buying things (قسمت امتیازی)
-
+               double totalprice=(pro.getPrice())*(pro.getNumber());
+               if(((customer) customer).getWallet()<totalprice){
+                  System.out.println("You do not have enough money");
+               }else {
+                  System.out.println("Your request for buying this product is sended");
+                  Admin.addRequestforbuyingProduct(pro);//requst for buying things (قسمت امتیازی)
+               }
+               continue;
             }
          }
       }

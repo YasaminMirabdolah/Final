@@ -3,21 +3,21 @@ import java.util.*;
 public class Seller extends Users{
     public Role role=Role.Seller;
     private ArrayList<product> productsToSell= new ArrayList<>();
-    private Wallet wallet= new Wallet();
+    private double wallet= 0;
     public Seller(Role role , String companyname , String password){
         super(role , companyname , password);
 
 
     }
-    public Wallet getWallet() {
+
+    public double getWallet() {
         return wallet;
     }
 
-    public double getWalletBalance() {
-        return wallet.getBalance();
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
     }
-    public String getWalletName(){
-        return wallet.getName();
+    public void addmoney(double money){
+        wallet=wallet+money;
     }
-
 }

@@ -217,15 +217,15 @@ public class Main{
         switch(x){
             case 1:
                 if(user instanceof customer){
-                    System.out.println(((customer) user).getWalletBalance());
+                    System.out.println(((customer) user).getWallet());
                     customerService(user);
                 }else if(user instanceof Seller){
-                    System.out.println(((Seller) user).getWalletBalance());
+                    System.out.println(((Seller) user).getWallet());
                     sellerService(user);
                 }
                 break;
             case 2:
-                //Request for money
+                //Admin.addRequestfor
                 break;
             case 3:
                 if(user instanceof customer){
@@ -437,11 +437,13 @@ public class Main{
         customer customer1=new customer(Role.customer , "name1" , "Password1", "Email", "number", "Address");
          Shop.addAccont(customer);
          Shop.addAccont(customer1);
-        Electronics Pro=new Electronics("name",3.2,8,"seller","Extra",3.2,"its good");
+         Seller seller=new Seller(Role.Seller,"naem","password");
+         Shop.addAccont(seller);
+        Electronics Pro=new Electronics("name",3.2,8,seller,"Extra",3.2,"its good");
         Shop.addProduct(Pro);
-        Cosmetics cos=new Cosmetics("name2", 55.5,5, "seller" ,"app" , "extra") ;
+        Cosmetics cos=new Cosmetics("name2", 55.5,5, seller ,"app" , "extra") ;
         Shop.addProduct(cos);
-        Books book=new Books("name2" , 120.0 , 5, "seller","writer", "public" , "extra");
+        Books book=new Books("name2" , 120.0 , 5, seller,"writer", "public" , "extra");
         Shop.addProduct(book);
 
         System.out.println(Shop.getProduct());

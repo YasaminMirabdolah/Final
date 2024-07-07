@@ -4,22 +4,22 @@ public class product {
     public  String name;
     public  double price;
     public  int InventoryQuantity;
-    public String  sellerName;
+    public Seller  seller;
     public  ArrayList<String> Comments=new ArrayList<>();
 
     public product(){}
-    public product(String name, double price , int InventoryQuantity , String sellerName , String commentfromtheseller){
+    public product(String name, double price , int InventoryQuantity , Seller seller , String commentfromtheseller){
         this.name=name;
         this.price=price;
         this.InventoryQuantity=InventoryQuantity;
-        this.sellerName=sellerName;
+        this.seller=seller;
         Comments.add(commentfromtheseller);
     }
-    public product(String name, double price , int InventoryQuantity , String sellerName){
+    public product(String name, double price , int InventoryQuantity , Seller seller){
         this.name=name;
         this.price=price;
         this.InventoryQuantity=InventoryQuantity;
-        this.sellerName=sellerName;
+        this.seller=seller;
 
     }
 
@@ -29,8 +29,8 @@ public class product {
 
     }
 
-    public String getSellerName() {
-        return sellerName;
+    public Seller getSeller() {
+        return seller;
     }
 
     public double getPrice() {
@@ -65,12 +65,12 @@ public class product {
         this.price = price;
     }
 
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
+    public void setSeller(Seller sellerName) {
+        this.seller = sellerName;
     }
     public String toString(){
         return "Name of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
-                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+
+                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+seller.getName()+"\n"+
                 "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
 }
@@ -94,13 +94,13 @@ class Electronics extends product{
     public  String extraData;
     public  double ScreenSize;
 
-    public Electronics(String name, double price , int InventoryQuantity , String sellerName , String extraData, double ScreenSize,
+    public Electronics(String name, double price , int InventoryQuantity , Seller sellerName , String extraData, double ScreenSize,
             String commentfromtheseller){
        super(name , price , InventoryQuantity, sellerName , commentfromtheseller);
        this.extraData=extraData;
        this.ScreenSize=ScreenSize;
     }
-    public Electronics(String name, double price , int InventoryQuantity , String sellerName , String extraData, double ScreenSize){
+    public Electronics(String name, double price , int InventoryQuantity , Seller sellerName , String extraData, double ScreenSize){
       super(name, price , InventoryQuantity, sellerName);
       this.ScreenSize=ScreenSize;
       this.extraData=extraData;
@@ -132,8 +132,8 @@ class Electronics extends product{
 
     }
 
-    public String getSellerName() {
-        return sellerName;
+    public Seller getSeller() {
+        return seller;
     }
 
     public double getPrice() {
@@ -168,12 +168,12 @@ class Electronics extends product{
         this.price = price;
     }
 
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
+    public void setSeller(Seller sellerName) {
+        this.seller = sellerName;
     }
     public String toString(){
         return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
-                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"Screen size : "+
+                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+seller.getName()+"\n"+"Screen size : "+
                 ScreenSize+"\n"+"Extra Data : "+extraData+"\n"+
                 "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
@@ -198,7 +198,7 @@ class Books extends product{
     public String writer;
     public String extraData;
 
-    public Books(String name, double price , int InventoryQuantity , String sellerName ,String writer,
+    public Books(String name, double price , int InventoryQuantity , Seller sellerName ,String writer,
                    String publisher , String extraData,String commentfromtheseller){
      super(name,price ,InventoryQuantity,sellerName,commentfromtheseller);
         this.writer=writer;
@@ -206,7 +206,7 @@ class Books extends product{
         this.extraData=extraData;
 
     }
-    public Books(String name, double price , int InventoryQuantity , String sellerName,String writer,
+    public Books(String name, double price , int InventoryQuantity , Seller sellerName,String writer,
                    String publisher , String extraData){
        super(name,price,InventoryQuantity,sellerName);
        this.writer=writer;
@@ -247,8 +247,8 @@ class Books extends product{
 
     }
 
-    public String getSellerName() {
-        return sellerName;
+    public Seller getSeller() {
+        return seller;
     }
 
     public double getPrice() {
@@ -283,12 +283,12 @@ class Books extends product{
         this.price = price;
     }
 
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
+    public void setSeller(Seller sellerName) {
+        this.seller = sellerName;
     }
     public String toString(){
         return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
-                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"writer : "+
+                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+seller.getName()+"\n"+"writer : "+
                 writer+"\n"+"Publisher : "+publisher+"\n"+"Extra Data : "+extraData+"\n"+
                 "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
@@ -309,7 +309,7 @@ class Clothing extends product {
     public String color;
     public String extraData;
 
-    public Clothing(String name, double price, int InventoryQuantity, String sellerName, String color
+    public Clothing(String name, double price, int InventoryQuantity, Seller sellerName, String color
             , String extraData, String commentfromtheseller) {
         super(name, price, InventoryQuantity, sellerName, commentfromtheseller);
         this.color = color;
@@ -317,7 +317,7 @@ class Clothing extends product {
 
     }
 
-    public Clothing(String name, double price, int InventoryQuantity, String sellerName, String color, String extraData) {
+    public Clothing(String name, double price, int InventoryQuantity, Seller sellerName, String color, String extraData) {
         super(name, price, InventoryQuantity, sellerName);
         this.color = color;
         this.extraData = extraData;
@@ -348,8 +348,8 @@ class Clothing extends product {
 
     }
 
-    public String getSellerName() {
-        return sellerName;
+    public Seller getSeller() {
+        return seller;
     }
 
     public double getPrice() {
@@ -384,12 +384,12 @@ class Clothing extends product {
         this.price = price;
     }
 
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
+    public void setSeller(Seller sellerName) {
+        this.seller = sellerName;
     }
     public String toString(){
         return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
-                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"color : "+
+                "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+seller.getName()+"\n"+"color : "+
                 color+"\n"+"Extra Data : "+extraData+"\n"+
                 "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
@@ -414,7 +414,7 @@ class Clothing extends product {
         public String extraData;
         public String Application;
 
-        public Cosmetics(String name, double price, int InventoryQuantity, String sellerName, String Application
+        public Cosmetics(String name, double price, int InventoryQuantity, Seller sellerName, String Application
                 , String extraData, String commentfromtheseller) {
             super(name, price, InventoryQuantity, sellerName, commentfromtheseller);
             this.Application = Application;
@@ -422,7 +422,7 @@ class Clothing extends product {
 
         }
 
-        public Cosmetics(String name, double price, int InventoryQuantity, String sellerName, String Application
+        public Cosmetics(String name, double price, int InventoryQuantity, Seller sellerName, String Application
                 , String extraData) {
             super(name, price, InventoryQuantity, sellerName);
             this.Application = Application;
@@ -454,8 +454,8 @@ class Clothing extends product {
 
         }
 
-        public String getSellerName() {
-            return sellerName;
+        public Seller getSeller() {
+            return seller;
         }
 
         public double getPrice() {
@@ -490,13 +490,13 @@ class Clothing extends product {
             this.price = price;
         }
 
-        public void setSellerName(String sellerName) {
-            this.sellerName = sellerName;
+        public void setSeller(Seller sellerName) {
+            this.seller = sellerName;
         }
 
         public String toString() {
             return "Category : "+category+"\nName of the product : " + name + "\n" + "Price of the Product : " + price + "\n" +
-                    "Inventory Quantity : " + InventoryQuantity + "\n" + "Seller's name :  " + sellerName + "\n" + "Application : " +
+                    "Inventory Quantity : " + InventoryQuantity + "\n" + "Seller's name :  " + seller.getName() + "\n" + "Application : " +
                     Application + "\n" + "Extra Data : " + extraData + "\n" +
                     "Comments : " + Comments.toString()+"\n=================================================================\n";
         }
@@ -532,7 +532,7 @@ class Clothing extends product {
             public String extraData;
             public String Application;
 
-            public HomeandKitchen(String name, double price, int InventoryQuantity, String sellerName, String Application
+            public HomeandKitchen(String name, double price, int InventoryQuantity, Seller sellerName, String Application
                     , String extraData, String commentfromtheseller) {
                 super(name, price, InventoryQuantity, sellerName, commentfromtheseller);
                 this.Application = Application;
@@ -540,7 +540,7 @@ class Clothing extends product {
 
             }
 
-            public HomeandKitchen(String name, double price, int InventoryQuantity, String sellerName, String Application
+            public HomeandKitchen(String name, double price, int InventoryQuantity, Seller sellerName, String Application
                     , String extraData) {
                 super(name, price, InventoryQuantity, sellerName);
                 this.Application = Application;
@@ -572,8 +572,8 @@ class Clothing extends product {
 
             }
 
-            public String getSellerName() {
-                return sellerName;
+            public Seller getSeller() {
+                return seller;
             }
 
             public double getPrice() {
@@ -608,12 +608,12 @@ class Clothing extends product {
                 this.price = price;
             }
 
-            public void setSellerName(String sellerName) {
-                this.sellerName = sellerName;
+            public void setSeller(Seller sellerName) {
+                this.seller = sellerName;
             }
             public String toString(){
                 return "category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
-                        "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"Application : "+
+                        "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+seller.getName()+"\n"+"Application : "+
                         Application+"\n"+"Extra Data : "+extraData+"\n"+
                         "Comments : "+Comments.toString()+"\n=================================================================\n";
             }
