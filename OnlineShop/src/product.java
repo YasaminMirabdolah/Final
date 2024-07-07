@@ -70,7 +70,7 @@ public class product {
     public String toString(){
         return "Name of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
                 "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+
-                "Comments : "+Comments.toString();
+                "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
 }
 
@@ -171,10 +171,10 @@ class Electronics extends product{
         this.sellerName = sellerName;
     }
     public String toString(){
-        return "Name of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
+        return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
                 "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"Screen size : "+
                 ScreenSize+"\n"+"Extra Data : "+extraData+"\n"+
-                "Comments : "+Comments.toString();
+                "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
 }
 
@@ -286,10 +286,10 @@ class Books extends product{
         this.sellerName = sellerName;
     }
     public String toString(){
-        return "Name of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
+        return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
                 "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"writer : "+
                 writer+"\n"+"Writer : "+writer+"\n"+"Extra Data : "+extraData+"\n"+
-                "Comments : "+Comments.toString();
+                "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
 
 
@@ -387,10 +387,10 @@ class Clothing extends product {
         this.sellerName = sellerName;
     }
     public String toString(){
-        return "Name of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
+        return "Category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
                 "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"color : "+
                 color+"\n"+"Extra Data : "+extraData+"\n"+
-                "Comments : "+Comments.toString();
+                "Comments : "+Comments.toString()+"\n=================================================================\n";
     }
 }
 
@@ -494,10 +494,10 @@ class Clothing extends product {
         }
 
         public String toString() {
-            return "Name of the product : " + name + "\n" + "Price of the Product : " + price + "\n" +
+            return "Category : "+category+"\nName of the product : " + name + "\n" + "Price of the Product : " + price + "\n" +
                     "Inventory Quantity : " + InventoryQuantity + "\n" + "Seller's name :  " + sellerName + "\n" + "Application : " +
                     Application + "\n" + "Extra Data : " + extraData + "\n" +
-                    "Comments : " + Comments.toString();
+                    "Comments : " + Comments.toString()+"\n=================================================================\n";
         }
     }
 
@@ -611,10 +611,10 @@ class Clothing extends product {
                 this.sellerName = sellerName;
             }
             public String toString(){
-                return "Name of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
+                return "category : "+category+"\nName of the product : "+name+"\n"+"Price of the Product : "+price+"\n"+
                         "Inventory Quantity : "+InventoryQuantity+"\n"+"Seller's name :  "+sellerName+"\n"+"Application : "+
                         Application+"\n"+"Extra Data : "+extraData+"\n"+
-                        "Comments : "+Comments.toString();
+                        "Comments : "+Comments.toString()+"\n=================================================================\n";
             }
         }
 

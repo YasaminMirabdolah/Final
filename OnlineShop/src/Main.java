@@ -42,7 +42,7 @@ public class Main{
         Scanner input=new Scanner(System.in);
        System.out.println("please Enter your name or your Company's name:");
        String name=input.next();
-       ArrayList<Users> users=new ArrayList<>();
+       Set<Users> users=new HashSet<>();
        users = Shop.getAccounts();
        boolean found =false;
        for(Users x:users){
@@ -53,6 +53,7 @@ public class Main{
                if(password.equals(x.getPassword())){
                    System.out.println("Login was successful");
                    if(x.getRole()==Role.Admin){
+                       System.out.println("Your request to become an admin was accepted.");
                        adminService(x);
                    }else if(x.getRole()==Role.customer){
                        customerService(x);
@@ -165,7 +166,7 @@ public class Main{
                 EditInfo(Costumer, choose);
                     break;
                 case 2:
-                    //Shop.viewProduct();
+                    Shop.viewProduct(Costumer);
                     break;
                 case 3:
                     // Shop.searchProduct();
@@ -421,9 +422,15 @@ public class Main{
         Admin adminno1=new Admin(role , adminname, password , email);
         Shop.addAccont(adminno1);
          customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
+        customer customer1=new customer(Role.customer , "name1" , "Password1", "Email", "number", "Address");
          Shop.addAccont(customer);
+         Shop.addAccont(customer1);
         Electronics Pro=new Electronics("name",3.2,8,"seller","Extra",3.2,"its good");
         Shop.addProduct(Pro);
+        Cosmetics cos=new Cosmetics("name", 55.5,5, "seller" ,"app" , "extra") ;
+        Shop.addProduct(cos);
+        Books book=new Books("name" , 120.0 , 5, "seller","writer", "public" , "extra");
+        Shop.addProduct(book);
 
         System.out.println(Shop.getProduct());
         System.out.println(Shop.getAccounts());
