@@ -175,7 +175,7 @@ public class Main{
                     ((customer)Costumer).viewCart(Costumer);
                     break;
                 case 5:
-                    //Order List
+                    System.out.println("Request is sent to Admin for buying the orders");
                     break;
                 case 6:
                     //List of Products Purchased
@@ -436,7 +436,9 @@ public class Main{
         System.out.println(Shop.getAccounts());
 
         System.out.println("--------------------------------------------------------------------------------------------");
-        System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n");
+        System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n\n\n\n\n\n");
+        System.out.print("Please do not use space , use \" - \" instead");
+
 
 
         menu();

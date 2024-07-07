@@ -1,4 +1,4 @@
-public class Cart extends Things {
+public class Cart extends product {
     private String customerName;
     private String sellerName;
     private product product;

@@ -6,7 +6,7 @@ public class Shop {
     private static final String number="0921-448-8999";
     private static Set<Users> Accounts= new HashSet<>();
     private static ArrayList<product> Product=new ArrayList<>();
-    private static ArrayList<Things> orders= new ArrayList<>();
+    private static ArrayList<Cart> orders= new ArrayList<>();
     private static ArrayList<Seller> sellersCanSell = new ArrayList<>();
     private static double profitEarned;
 
@@ -199,6 +199,9 @@ public class Shop {
 
 
        }
+   }
+   public static void addOrder(Cart pro){
+        orders.add(pro);
    }
 
 }

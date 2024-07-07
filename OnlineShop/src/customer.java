@@ -144,6 +144,7 @@ public class customer extends Users{
                cart.remove(pro);
             } else if (m == 1) {
                ((customer) customer).getOrder().add(pro);
+               Shop.addOrder(pro);
                cart.remove(pro);
             }
          }

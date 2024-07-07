@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class product extends Things {
+public class product {
     public  String name;
     public  double price;
     public  int InventoryQuantity;
