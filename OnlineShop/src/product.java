@@ -23,6 +23,8 @@ public class product {
 
     }
 
+
+
     public void productaddComment(String comment){
         Comments.add(comment);
         System.out.println("your comment is added");

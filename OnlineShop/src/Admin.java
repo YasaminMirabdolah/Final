@@ -25,13 +25,47 @@ public class Admin  extends Users{
     public static ArrayList<Users> getRequestforAdminAccount() {
         return requestforAdminAccount;
     }
-    public void Accepted(Admin admin){
-        requestforAdminAccount.remove(admin);
+    public  void Accepted(Admin admin){
+
         Shop.addAccont(admin);
-    }
-    public void Remove(Admin admin){
         requestforAdminAccount.remove(admin);
     }
+    public  void Remove(Admin admin){
+        requestforAdminAccount.remove(admin);
+    }
+    public static void viewRequestforAdminAccount(Users admin) {
+        Scanner input = new Scanner(System.in);
+        Iterator<Users> iterrequest = requestforAdminAccount.iterator();
+        for (int i = 0; i <= requestforAdminAccount.size(); i++) {
+            if (i == requestforAdminAccount.size()) {
+                System.out.println("last request");
+                Main.adminService(admin);
+            }
+            else if (i < requestforAdminAccount.size()) {
+
+                Users req = iterrequest.next();
+                System.out.println(req);
+                System.out.println("1)Accept" + "\n" + "2)remove\n" + "3)Back\n"+"=================================================================");
+                int x = input.nextInt();
+                if (x == 3) {
+                    Main.adminService(admin);
+                    break;
+                } else if (x == 1) {
+                    ((Admin) admin).Accepted((Admin)req);
+
+                    continue;
+                }else if(x==2){
+                    ((Admin) admin).Remove((Admin)req);
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    }
+
 
 
 
@@ -44,12 +78,67 @@ public class Admin  extends Users{
     }
 
     public void Acceptedseller(Seller seller){
-        requestforsellingProduct.remove(seller);
+
         Shop.addSellersCanSell(seller);
+        requestforsellingProduct.remove(seller);
     }
     public void Removeseller(Seller seller){
         requestforsellingProduct.remove(seller);
     }
+    public static void viewrequestforsellingProduct(Users admin) {
+        Scanner input = new Scanner(System.in);
+        Iterator<Seller> iterrequest = requestforsellingProduct.iterator();
+        for (int i = 0; i <= requestforsellingProduct.size(); i++) {
+            if (i == requestforsellingProduct.size()) {
+                System.out.println("last request");
+                Main.adminService(admin);
+            }
+            else if (i < requestforsellingProduct.size()) {
+
+                Seller req = iterrequest.next();
+                System.out.println(req);
+                System.out.println("1)Accept" + "\n" + "2)remove\n" + "3)Back\n"+"=================================================================");
+                int x = input.nextInt();
+                if (x == 3) {
+                    Main.adminService(admin);
+                    break;
+                } else if (x == 1) {
+                    ((Admin) admin).Acceptedseller(req);
+
+                    continue;
+                }else if(x==2){
+                    ((Admin) admin).Removeseller(req);
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,7 +152,7 @@ public class Admin  extends Users{
 
     }
     public void Accepted(Cart order){
-        requestforbuyingProduct.remove(order);
+
         customer c=order.getCustomer();
         Seller s=order.getSeller();
         double totalprice=(order.getPrice())*(order.getNumber());
@@ -73,19 +162,108 @@ public class Admin  extends Users{
         s.addmoney(moneys);
         c.addmoney(moneyc);
         Shop.addProfit(profitforshop);
-
+        requestforbuyingProduct.remove(order);
 
     }
     public void Remove(Cart order){
         requestforbuyingProduct.remove(order);
     }
+    public static void viewrequestforbuyingProduct(Users admin) {
+        Scanner input = new Scanner(System.in);
+        Iterator<Cart> iterrequest = requestforbuyingProduct.iterator();
+        for (int i = 0; i <= requestforbuyingProduct.size(); i++) {
+            if (i == requestforbuyingProduct.size()) {
+                System.out.println("last request");
+                Main.adminService(admin);
+            }
+           else if (i < requestforbuyingProduct.size()) {
+
+                Cart req = iterrequest.next();
+                System.out.println(req);
+                System.out.println("1)Accept" + "\n" + "2)remove\n" + "3)Back\n"+"=================================================================");
+                int x = input.nextInt();
+                if (x == 3) {
+                    Main.adminService(admin);
+                    break;
+                } else if (x == 1) {
+                    ((Admin) admin).Accepted(req);
+                    continue;
+                }else if(x==2){
+                    ((Admin) admin).Remove(req);
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
     public static ArrayList<Users> getRequestformoney() {
         return requestformoney;
     }
-    //puble
+    public static void addRequestformoney(Users user){
+        requestformoney.add(user);
+
+    }
+    public void Accepted(Users user){
+
+        if(user instanceof customer){
+            ((customer) user).addmoney(user.getRequestmoney());
+        }else if (user instanceof Seller){
+            ((Seller) user).addmoney(getRequestmoney());
+        }requestformoney.remove(user.getRequestmoney());
+    }
+    public void Remove(Users user){
+        requestformoney.remove(user);
+    }
+    public static void viewRequestmoney(Users admin) {
+        Scanner input = new Scanner(System.in);
+        Iterator<Users> iterrequest = requestformoney.iterator();
+        for (int i = 0; i <= requestformoney.size(); i++) {
+            if (i == requestformoney.size()) {
+                System.out.println("last request");
+                Main.adminService(admin);
+            }
+           else if (i < requestformoney.size()) {
+
+                Users req = iterrequest.next();
+                System.out.println(req);
+                System.out.println("1)Accept" + "\n" + "2)remove\n" + "3)Back\n"+"=================================================================");
+                int x = input.nextInt();
+                if (x == 3) {
+                    Main.adminService(admin);
+                    break;
+                } else if (x == 1) {
+                    ((Admin) admin).Accepted(req);
+                    continue;
+                }else if(x==2){
+                    ((Admin) admin).Remove(req);
+                    continue;
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
 
 
 

@@ -46,7 +46,7 @@ public class Main{
         Scanner input=new Scanner(System.in);
        System.out.println("please Enter your name or your Company's name:");
        String name=input.next();
-       Set<Users> users=new HashSet<>();
+       ArrayList<Users> users=new ArrayList<>();
        users = Shop.getAccounts();
        boolean found =false;
        for(Users x:users){
@@ -102,6 +102,7 @@ public class Main{
                 Admin admin=new Admin(roleadmin , nameadmin, passwordadmin, emailadmin);
                 Admin.addRequestforAdminAccount(admin);
                 System.out.println("Your request has been sent to admins");
+                menu();
 
 
                 break;
@@ -225,7 +226,11 @@ public class Main{
                 }
                 break;
             case 2:
-                //Admin.addRequestfor
+                System.out.println("Enter the amount of money you want to add to your wallet : ");
+                double requestmoney=input.nextDouble();
+                user.setRequestmoney(requestmoney);
+                Admin.addRequestformoney(user);
+                System.out.println("your request is sended");
                 break;
             case 3:
                 if(user instanceof customer){
@@ -259,10 +264,19 @@ public class Main{
         int x=input.nextInt();
         switch (x){
             case 1:
-                //request for selling
+                Admin.addRequestforsellingProduct((Seller) Seller);
+                sellerService(Seller);
                 break;
             case 2:
-                //add the product
+                boolean found=false;
+                for(Seller s:Shop.getSellersCanSell()){
+                    if(Shop.getSellersCanSell().contains(s)){
+                        found=true;
+                        sellersaddproduct(Seller);
+                    }
+                }if(found==false){
+                    System.out.println("You can not sell anything");
+            }
                 break;
             case 3:
                 Wallet(Seller);
@@ -272,6 +286,96 @@ public class Main{
                 break;
         }
 
+    }
+
+    public static void sellersaddproduct(Users seller){
+        Scanner input=new Scanner(System.in);
+        System.out.println("You can sell product");
+        System.out.println("Choose your product's Category\n\t1)Electronics\n\t2)Books\n\t3)Clothing\n\t4)Cosmetics\n\t5)Home and kitchen\n\t6)none of the above\n\t" +
+                "7)Back");
+        int x=input.nextInt();
+        switch (x){
+            case 1:
+                System.out.println("Enter your product's name: ");
+                String name1=input.next();
+                System.out.println("Enter your price's name: ");
+                double price1= input.nextDouble();
+                System.out.println("Enter your Inventory quantity's name: ");
+                int iq1= input.nextInt();
+                System.out.println("Enter your product's Screen size: ");
+                double ss1= input.nextDouble();
+                System.out.println("Enter your ExtraDatas: ");
+                String ed1=input.next();
+                Electronics e1=new Electronics(name1,price1,iq1,((Seller) seller),ed1,ss1);
+                break;
+            case 2:
+                System.out.println("Enter your product's name: ");
+                String name2=input.next();
+                System.out.println("Enter your price's name: ");
+                double price2= input.nextDouble();
+                System.out.println("Enter your Inventory quantity's name: ");
+                int iq2= input.nextInt();
+                System.out.println("Enter your writer's name: ");
+                String writer2= input.next();
+                System.out.println("Enter your publisher's name");
+                String publiser2=input.next();
+                System.out.println("Enter your ExtraDatas: ");
+                String ed2=input.next();
+
+                Books e2=new Books(name2,price2,iq2,((Seller) seller),writer2,publiser2,ed2);
+                break;
+            case 3:
+                System.out.println("Enter your product's name: ");
+                String name3=input.next();
+                System.out.println("Enter your price's name: ");
+                double price3= input.nextDouble();
+                System.out.println("Enter your Inventory quantity's name: ");
+                int iq3= input.nextInt();
+                System.out.println("Enter your product's color: ");
+                String color3= input.next();
+                System.out.println("Enter your ExtraDatas: ");
+                String ed3=input.next();
+                Clothing cloth=new Clothing(name3,price3,iq3,(Seller) seller,color3,ed3);
+                break;
+            case 4:
+                System.out.println("Enter your product's name: ");
+                String name4=input.next();
+                System.out.println("Enter your price's name: ");
+                double price4= input.nextDouble();
+                System.out.println("Enter your Inventory quantity's name: ");
+                int iq4= input.nextInt();
+                System.out.println("Enter your product's application: ");
+                String App4= input.next();
+                System.out.println("Enter your ExtraDatas: ");
+                String ed4=input.next();
+                Cosmetics cs=new Cosmetics(name4,price4,iq4,(Seller) seller,App4,ed4);
+                break;
+            case 5:
+                System.out.println("Enter your product's name: ");
+                String name5=input.next();
+                System.out.println("Enter your price's name: ");
+                double price5= input.nextDouble();
+                System.out.println("Enter your Inventory quantity's name: ");
+                int iq5= input.nextInt();
+                System.out.println("Enter your product's applicaiton: ");
+                String App5= input.next();
+                System.out.println("Enter your ExtraDatas:  ");
+                String ed5=input.next();
+                HomeandKitchen hak=new HomeandKitchen(name5,price5,iq5,(Seller) seller,App5,ed5);
+                break;
+            case 6:
+                System.out.println("Enter your product's name: ");
+                String name6=input.next();
+                System.out.println("Enter your price's name: ");
+                double price6= input.nextDouble();
+                System.out.println("Enter your Inventory quantity's name: ");
+                int iq6= input.nextInt();
+                product pr=new product(name6,price6,iq6,((Seller) seller));
+                break;
+            case 7:
+                sellerService(seller);
+                break;
+        }
     }
 
 
@@ -289,32 +393,33 @@ public class Main{
         Scanner input=new Scanner(System.in);
         System.out.println("Please choose one option:\n\t"+"1)view Accounts\n\t"+"2)view customer's info\n\t"+"3)view products\n\t"
         +"4)view Request for Admin Accounts\n\t"+"5)view Request for Selling products\n\t"+"6)view Request for buying products\n\t"
-        +"7)Main menu");
+        +"7)Main menu\n\t8)view request for money");
         int x=input.nextInt();
         switch(x){
             case 1:
                 System.out.println(Shop.getAccounts());
                 break;
             case 2:
-                System.out.println("Please Enter the customer's name");
-                String user=input.next();
+
                 viewCustomerInfo(admin);
                 break;
             case 3:
                 Shop.viewProduct();
                 break;
             case 4:
-
+                Admin.viewRequestforAdminAccount(admin);
                 break;
             case 5:
-                //view request for selling
+                Admin.viewrequestforsellingProduct(admin);
                 break;
             case 6:
-                //view request for buying products
+                Admin.viewrequestforbuyingProduct(admin);
                 break;
             case 7:
                 menu();
                 break;
+            case 8:
+                Admin.viewRequestmoney(admin);
 
         }
 
@@ -433,21 +538,7 @@ public class Main{
         String email="Email";
         Admin adminno1=new Admin(role , adminname, password , email);
         Shop.addAccont(adminno1);
-         customer customer=new customer(Role.customer , "name" , "Password", "Email", "number", "Address");
-        customer customer1=new customer(Role.customer , "name1" , "Password1", "Email", "number", "Address");
-         Shop.addAccont(customer);
-         Shop.addAccont(customer1);
-         Seller seller=new Seller(Role.Seller,"naem","password");
-         Shop.addAccont(seller);
-        Electronics Pro=new Electronics("name",3.2,8,seller,"Extra",3.2,"its good");
-        Shop.addProduct(Pro);
-        Cosmetics cos=new Cosmetics("name2", 55.5,5, seller ,"app" , "extra") ;
-        Shop.addProduct(cos);
-        Books book=new Books("name2" , 120.0 , 5, seller,"writer", "public" , "extra");
-        Shop.addProduct(book);
-
-        System.out.println(Shop.getProduct());
-        System.out.println(Shop.getAccounts());
+        
 
         System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n\n\n\n\n\n");

@@ -5,6 +5,7 @@ public class Users {
     private Role role;
     private String name;
     private String password;
+    private double requestmoney;
     public Users(Role role ,String name, String password){
         setRole(role);
         setName(name);
@@ -20,6 +21,15 @@ public class Users {
         this.role=role;
 
     }
+
+    public double getRequestmoney() {
+        return requestmoney;
+    }
+
+    public void setRequestmoney(double requestmoney) {
+        this.requestmoney = requestmoney;
+    }
+
     public Role getRole(){
         return role;
     }

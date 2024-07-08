@@ -4,7 +4,7 @@ public class Shop {
     private  static final String name = "Yasamin's onlineShop";
     private static  final String WebURL = "WWW.YasaminsOnlineshop.com";
     private static final String number="0921-448-8999";
-    private static Set<Users> Accounts= new HashSet<>();
+    private static ArrayList<Users> Accounts= new ArrayList<>();
     private static ArrayList<product> Product=new ArrayList<>();
     private static ArrayList<Cart> orders= new ArrayList<>();
     private static ArrayList<Seller> sellersCanSell = new ArrayList<>();
@@ -26,7 +26,7 @@ public class Shop {
         return Product;
     }
 
-    public static Set<Users> getAccounts() {
+    public static ArrayList<Users> getAccounts() {
         return Accounts;
     }
 
@@ -45,10 +45,9 @@ public class Shop {
        Product.add(product);
     }
 
-
-
-
-
+    public static ArrayList<Seller> getSellersCanSell() {
+        return sellersCanSell;
+    }
 
     public static double getProfitEarned(){
         return profitEarned;
@@ -71,7 +70,7 @@ public class Shop {
 
                 product pro = iterproduct.next();
                 System.out.println(pro);
-                System.out.println("1))next product" + "\n" + "2)Back\n" + "=================================================================");
+                System.out.println("1)next product" + "\n" + "2)Back\n" + "=================================================================");
                 int x = input.nextInt();
                 if (x == 2) {
                     Main.menu();
