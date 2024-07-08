@@ -52,10 +52,11 @@ public class Admin  extends Users{
                     break;
                 } else if (x == 1) {
                     ((Admin) admin).Accepted((Admin)req);
-
+                    Main.adminService(admin);
                     continue;
                 }else if(x==2){
                     ((Admin) admin).Remove((Admin)req);
+                    Main.adminService(admin);
                     continue;
                 }
 
@@ -101,13 +102,16 @@ public class Admin  extends Users{
                 int x = input.nextInt();
                 if (x == 3) {
                     Main.adminService(admin);
+
                     break;
                 } else if (x == 1) {
                     ((Admin) admin).Acceptedseller(req);
+                    Main.adminService(admin);
 
                     continue;
                 }else if(x==2){
                     ((Admin) admin).Removeseller(req);
+                    Main.adminService(admin);
                     continue;
                 }
 
@@ -187,9 +191,11 @@ public class Admin  extends Users{
                     break;
                 } else if (x == 1) {
                     ((Admin) admin).Accepted(req);
+                    Main.adminService(admin);
                     continue;
                 }else if(x==2){
                     ((Admin) admin).Remove(req);
+                    Main.adminService(admin);
                     continue;
                 }
 
@@ -249,9 +255,11 @@ public class Admin  extends Users{
                     break;
                 } else if (x == 1) {
                     ((Admin) admin).Accepted(req);
+                    Main.adminService(admin);
                     continue;
                 }else if(x==2){
                     ((Admin) admin).Remove(req);
+                    Main.adminService(admin);
                     continue;
                 }
 

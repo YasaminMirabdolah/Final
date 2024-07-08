@@ -269,12 +269,15 @@ public class Main{
                 break;
             case 2:
                 boolean found=false;
+                ArrayList<Seller> sellerwhocansell=new ArrayList<>();
+                sellerwhocansell=Shop.getSellersCanSell();
                 for(Seller s:Shop.getSellersCanSell()){
-                    if(Shop.getSellersCanSell().contains(s)){
+                    if(sellerwhocansell.contains(s)){
                         found=true;
                         sellersaddproduct(Seller);
                     }
-                }if(found==false){
+                }
+                if(found==false){
                     System.out.println("You can not sell anything");
             }
                 break;
@@ -538,7 +541,7 @@ public class Main{
         String email="Email";
         Admin adminno1=new Admin(role , adminname, password , email);
         Shop.addAccont(adminno1);
-        
+
 
         System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println("***"+Shop.getName()+"***"+"\n"+ Shop.getWebURL()+"\n\n\n\n\n\n");
